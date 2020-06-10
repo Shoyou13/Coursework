@@ -1,0 +1,59 @@
+﻿@model DvdStore.Models.DvdLoanViewModel
+@{
+    ViewBag.Title = "DvdLoanFunction";
+}
+
+<h2>DvdLoan</h2>
+<form method="post">
+    <select name="dvdId">
+        @foreach (var d in Model.dvdDetails) { 
+            <option value="@d.DvdId">@d.DvdTitle</option>
+        }
+    </select>
+    <button type="submit">Search</button>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DvdTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datedue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberName)
+        </th>
+        <th>
+            Return Status: 
+        </th>
+        <th></th>
+    </tr>
+        <tr>
+            <td>
+                @Model.DvdTitle
+            </td>
+            <td>
+                @Model.dateout
+            </td>
+            <td>
+                @Model.datedue
+            </td>
+            <td>
+                @Model.MemberName
+            </td>
+            <td>
+                @if (Model.returnDate != null)
+                {
+                    @:Returned Back.
+                }
+                else { 
+                    @:Not Returned.
+                }
+
+            </td>
+        </tr>
+</table>
+

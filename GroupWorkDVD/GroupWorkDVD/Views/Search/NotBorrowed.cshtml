@@ -1,0 +1,47 @@
+﻿@model IList<DvdStore.Models.functionTwelve>
+@{
+    ViewBag.Title = "NotBorrowed";
+}
+
+<h2>NotBorrowed</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+           Title
+        </th>
+        <th>
+            Taken Date
+        
+        <th>
+            Days
+        </th>
+    </tr>
+    @foreach (var v in Model)
+    {
+<tr>
+    <td>
+        @v.FirstName
+    </td>
+    <td>
+        @v.LastName
+    </td>
+    <td>
+        @v.Title
+    </td>
+    <td>
+        @v.TakenDate
+    </td>
+    <td>
+        @v.Days
+    </td>
+</tr>
+    }
+</table>
+

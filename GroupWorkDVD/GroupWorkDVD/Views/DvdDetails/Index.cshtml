@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DvdStore.Models.DvdDetails>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="@Url.Action("Create","DvdDetails")" class=" btn btn-success" style="margin-bottom:10px"><i class="fa fa-plus" style="margin-right:8px"></i>Add New</a>
+    
+<table class="table" style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DvdTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DvdDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalDvdCopies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgeRestiriction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Producer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cast)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DvdTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DvdDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalDvdCopies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeRestiriction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Studio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Producer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cast)
+        </td>
+        <td>
+           <a href="@Url.Action("Edit", new { id=item.DvdId })" class="btn btn-default"><i class="fa fa-pencil" style="margin-right:5px"></i>Edit</a> 
+           <a href="@Url.Action("Details", new { id=item.DvdId })" class="btn btn-default" style="margin-left:8px">Details</a> 
+           <a href="@Url.Action("Delete", new { id=item.DvdId })" class="btn btn-danger" style="margin-top:8px"><i class="fa fa-trash" style="margin-right:5px"></i>Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />

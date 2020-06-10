@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DvdStore.Models.CastDetails>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","CastDetails")" class=" btn btn-success" style="margin-bottom:10px"><i class="fa fa-plus" style="margin-right:8px"></i>Add New Cast</a>
+</p>
+<table class="table" style="width:100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorFname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActorLname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorFname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActorLname)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id=item.CastId })" class="btn btn-default"><i class="fa fa-pencil" style="margin-right:5px"></i>Edit</a>
+            <a href="@Url.Action("Details", new { id=item.CastId })" class="btn btn-default" style="margin-left:8px">Details</a>
+            <a href="@Url.Action("Delete", new { id=item.CastId })" class="btn btn-danger" style="margin-left:8px"><i class="fa fa-trash" style="margin-right:5px"></i>Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />

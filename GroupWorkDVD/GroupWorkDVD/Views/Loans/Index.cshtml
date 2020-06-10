@@ -1,0 +1,79 @@
+﻿@model IEnumerable<DvdStore.Models.Loan>
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (TempData["FineMessage"] != null) { 
+    @TempData["FineMessage"]
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","Loans")" class=" btn btn-success" style="margin-bottom:10px"><i class="fa fa-plus" style="margin-right:8px"></i>Add New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DvdDetails.DvdTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanType.LoanCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TakenDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StandardCharge)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DvdDetails.DvdTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanType.LoanCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakenDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StandardCharge)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id=item.LoanId })" class="btn btn-default"><i class="fa fa-pencil" style="margin-right:5px"></i>Edit</a>
+            <a href="@Url.Action("Details", new { id=item.LoanId })" class="btn btn-default" style="margin-left:8px">Details</a>
+            <a href="@Url.Action("Delete", new { id=item.LoanId })" class="btn btn-danger" style="margin-left:8px"><i class="fa fa-trash" style="margin-right:5px"></i>Delete</a>
+            @if (item.ReturnDate == null)
+            {
+                <form method="post">
+                    <input type="hidden" name="DvdId" value="@item.DvdId" /><button type="submit">Return Dvd</button>
+                </form>
+            }
+        </td>
+    </tr>
+}
+
+</table>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />

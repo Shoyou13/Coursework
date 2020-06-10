@@ -1,0 +1,49 @@
+﻿@model IList<DvdStore.Models.LoanOrderByDate>
+@{
+    ViewBag.Title = "FunctionEleven";
+}
+
+<h2>FunctionEleven</h2>
+<table class="table">
+    <tr>
+        <th>
+            Loan Date
+        </th>
+        <th>
+            Dvd Title
+        </th>
+        <th>
+            Member Name
+        </th>
+        <th>
+            Total Loans Taken:
+        </th>
+    </tr>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>
+                @v.LoanDate
+
+            </td>
+            <td>
+                @foreach (var x in v.functions) { 
+                    @x.dvdTitle
+                    <br />
+
+                }
+            </td>
+            <td>
+                @foreach (var x in v.functions)
+                {
+                    @x.memberName
+                    <br />
+                }
+            </td>
+            <td>
+                @v.totalLoan
+            </td>
+        </tr>
+    }
+</table>
+

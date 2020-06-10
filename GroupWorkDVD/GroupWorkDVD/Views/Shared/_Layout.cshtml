@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/b2.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-header pull-left">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <img src="~/Imges/logo.jpg" alt="Site Logo" style="height:45px; width: 50px; margin-top:-10px; margin-left:-40px" /></a>
+            </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Everest Video Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Movies", "Index", "DvdDetails")</li>
+                    <li>@Html.ActionLink("Rent Movies", "Index", "Loans")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cast/Producer <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style="background-color:black">
+                            <li class="divider"></li>
+                            <li>
+                                <a href="@Url.Action("Index","CastDetails")">Cast</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Index","Producers")">Producer</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Members", "Index", "Members")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color:gold">&copy; @DateTime.Now.Year - Copyright © EverestDVDStore All rights reserved.</p>
+        </footer>
+    </div>
+   
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

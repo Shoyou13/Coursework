@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/MyLayout.css" rel="stylesheet" />
+<link href="~/Content/s2.css" rel="stylesheet" />
+<div id="themeSlider" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:520px;width:100%" src="~/Imges/pw.jpg" alt="First slide">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:520px;width:100%" src="~/Imges/1_cTRIR0nNXuTr4XBFwhL2TQ.jpeg" alt="Second slide">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:520px;width:100%" src="~/Imges/gintoki.jpg" alt="Third slide">
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+</div>
+
+<div class="container" style="width: 60%; margin-top:50px; margin-left:20px">
+    <a href="~/Search/Index" class="button">Search For Movies</a><a href="~/DvdDetails/Index" class="button-readmore"><span>All Movies</span></a>
+</div>
